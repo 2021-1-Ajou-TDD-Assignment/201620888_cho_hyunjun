@@ -29,13 +29,25 @@ public class BowlingGameTest {
 		assertEquals(20, g.score());
 	}
 	
-	@Ignore("until we walk frame by frame")
 	@Test
 	public void testOneSpare() {
 		rollSpare();	//spare
 		g.roll(3);
 		rollMany(17, 0);
 		assertEquals(16, g.score());
+	}
+	
+	@Test
+	public void testOneStrike() {
+		rollStrike();
+		g.roll(3);
+		g.roll(4);
+		rollMany(16, 0);
+		assertEquals(24, g.score());
+	}
+	
+	private void rollStrike() {
+		g.roll(10);
 	}
 	private void rollSpare() {
 		g.roll(5);
