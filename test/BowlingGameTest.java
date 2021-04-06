@@ -35,11 +35,17 @@ public class BowlingGameTest {
 	@Test
 	public void testOneSpare() {
 		setUp();
-		g.roll(5);
-		g.roll(5);	//spare
+		rollSpare();	//spare
 		g.roll(3);
 		rollMany(17, 0);
 		assertEquals(16, g.score());
 	}
+	private void rollSpare() {
+		g.roll(5);
+		g.roll(5);
+	}
+	
+	
+	
 
 }
